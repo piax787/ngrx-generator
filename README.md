@@ -1,6 +1,7 @@
 # small-ngrx-generator
 
-### Save yourself the headache of Redux boilerplate [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+### Forked version of Netanel Basal ngrx-generator node package
+### Helps generate ngrx boilerplate
 
 ## Getting Started
 
