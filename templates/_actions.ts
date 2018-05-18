@@ -1,29 +1,30 @@
 import { Action } from '@ngrx/store';
 
-export const LOAD =                 '[{{ titleCase name }}] Load';
-export const LOAD_SUCCESS =         '[{{ titleCase name }}] Load Success';
-export const LOAD_FAIL =            '[{{ titleCase name }}] Load Fail';
+/**
+ * {{ titleCase name }} Action Types
+ */
+export const enum ActionTypes {
+  Fetch = '[{{ titleCase name }}] Fetch',
+  FetchSuccess = '[{{ titleCase name }}] Fetch Success',
+  FetchFailure = '[{{ titleCase name }}] Fetch Failure'
+}
 
 /**
- * Load {{ titleCase name }} Actions
+ * {{ titleCase name }} Actions
  */
-export class LoadAction implements Action {
-  readonly type = LOAD;
+export class Fetch implements Action {
+  readonly type = ActionTypes.Fetch;
+  constructor(public payload: any) {}
 }
 
-export class LoadSuccessAction implements Action {
-  readonly type = LOAD_SUCCESS;
-
-  constructor(public payload: any) { }
+export class FetchSuccess implements Action {
+  readonly type = ActionTypes.FetchSuccess;
+  constructor(public payload: any) {}
 }
 
-export class LoadFailAction implements Action {
-  readonly type = LOAD_FAIL;
-
-  constructor(public payload: any) { }
+export class FetchFailure implements Action {
+  readonly type = ActionTypes.FetchFailure;
+  constructor(public payload: any) {}
 }
 
-export type Actions =
-  | LoadAction
-  | LoadSuccessAction
-  | LoadFailAction;
+export type ActionsUnion = Fetch | FetchSuccess | FetchFailure;

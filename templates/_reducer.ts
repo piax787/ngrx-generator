@@ -1,42 +1,41 @@
+import { Action } from '@ngrx/store';
 import * as {{ camelCase name }} from '{{position "actions"}}/{{ lowerCase name }}.actions';
 
 export interface State {
-  loading: boolean;
-  entities: { [id: string]: any };
-  result: string[];
+  status: string;
+  result: any[];
 }
 
 export const initialState: State = {
-  loading: false,
-  entities: {},
+  status: '',
   result: []
 }
 
-export function reducer(state = initialState, action: {{ camelCase name }}.Actions): State {
+export function reducer(
+  state: State = initialState,
+  action: {{ camelCase name }}.ActionsUnion
+): State {
   switch (action.type) {
-    case {{ camelCase name }}.LOAD: {
+    case {{ camelCase name }}.ActionTypes.Fetch: {
       return {
         ...state,
-        loading: true
+        status: 'loading'
       }
     }
-
-    case {{ camelCase name }}.LOAD_SUCCESS: {
-
+    case {{ camelCase name }}.ActionTypes.FetchSuccess: {
       return {
         ...state,
-        loading: false,
+        status: 'success',
+        result: action.payload
       };
     }
-
-     case {{ camelCase name }}.LOAD_FAIL: {
-
+    case {{ camelCase name }}.ActionTypes.FetchFailure: {
       return {
         ...state,
-        loading: false,
+        status: 'error',
+        result: []
       };
     }
-
     default: {
       return state;
     }
