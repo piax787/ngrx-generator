@@ -1,13 +1,12 @@
-import "rxjs/add/observable/of";
-import "rxjs/add/observable/throw";
-import { EffectsRunner, EffectsTestingModule } from "@ngrx/effects/testing";
+import { provideMockActions } from "@ngrx/effects/testing";
 import { fakeAsync, TestBed, tick } from "@angular/core/testing";
 import { {{titleCase name}}Effects } from "{{position "effects"}}/{{lowerCase name}}.effects";
 import { {{titleCase name}}Service } from "{{position "services"}}/{{lowerCase name}}.service";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
+import { of, catch } from 'rxjs/operators';
 
 describe('{{titleCase name}}Effects', () => {
-  let runner, {{lowerCase name}}Effects, {{lowerCase name}}Service;
+  let effects, {{lowerCase name}}Effects, {{lowerCase name}}Service;
 
   beforeEach(() => TestBed.configureTestingModule({
     imports: [
@@ -23,19 +22,16 @@ describe('{{titleCase name}}Effects', () => {
   }));
 
   beforeEach(() => {
-    runner = TestBed.get(EffectsRunner);
+    effects = TestBed.get(EffectsRunner);
     {{lowerCase name}}Effects = TestBed.get({{titleCase name}}Effects);
     {{lowerCase name}}Service = TestBed.get({{titleCase name}}Service);
   });
 
   describe('{{lowerCase name}}$', () => {
-
-    it('should return a LOAD_SUCCESS action, on success', function () {
-
+    it('should return a FetchSuccess action, on success', () => {
     });
 
-    it('should return a LOAD_FAIL action, on error', function () {
-
+    it('should return a FetchFailure action, on error', () => {
     });
 
   });
