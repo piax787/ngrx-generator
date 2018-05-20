@@ -1,13 +1,14 @@
 {
-  "name": "ngrx-generator",
+  "name": "small-ngrx-generator",
   "version": "0.0.1",
-  "description": "ngrx templates generator",
+  "description": "small ngrx boilerplate generator",
   "main": "index.js",
   "scripts": {
     "plop": "plop"
   },
   "keywords": [
-    "ngrx generator"
+    "ngrx generator",
+    "ngrx boilerplate"
   ],
   "author": "Ammar Qureshi",
   "license": "MIT",
